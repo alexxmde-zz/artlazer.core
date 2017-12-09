@@ -1,14 +1,23 @@
 import userModel from '../../models/user';
+import { standardQuery, standardPersist, standardSingleQuery } from '../../utils/utils.js';
+
+const idParam = 'userId';
 
 export default class UserController {
+
   async persistUser (req, res) {
-    const { body: user } = req;
-    try {
-      await userModel.create(user);
-      res.json(user);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: error.message });
-    }
+    standardPersist(idParam, userModel, req, res);
   }
+
+  async getUser (req, res) {
+    standardSingleQuery(idParam, userModel, req, res);
+  }
+
+  async getUsers (req, res) {
+    standardQuery(userModel, req, res);
+  }
+
+  async deleteUser (req, res) {
+  }
+
 }

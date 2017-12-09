@@ -8,7 +8,11 @@ const controller = new UsersController();
 const router = express.Router();
 
 router.use(validateJwt);
+
 router.post('/', controller.persistUser);
+router.get('/', controller.getUsers);
+router.put('/:userId', controller.persistUser);
+router.get('/:userId', controller.getUser);
 
 export default { 
   prefix,
