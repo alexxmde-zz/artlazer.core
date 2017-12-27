@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import cors from 'cors';
 import mongoose from 'mongoose';
 import * as routers from './routers';
 
@@ -12,6 +13,7 @@ export default class Api {
   }
 
   middleware () {
+    this.express.use(cors());
     this.express.use(bodyParser.json());
   }
 

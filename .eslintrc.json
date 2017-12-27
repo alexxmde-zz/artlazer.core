@@ -1,0 +1,15 @@
+{
+    "plugins": ["node", "flowtype"],
+    "extends": ["eslint:recommended", "plugin:node/recommended"],
+    "rules": {
+        "node/exports-style": ["error", "module.exports"],
+        "node/no-unsupported-features": "off",
+        "no-console": "off"
+    },
+    "parser": {
+      "babel-eslint"
+    },
+    "parserOptions": {
+      "sourceType": "module"
+    }
+}
